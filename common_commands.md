@@ -1,4 +1,5 @@
-## [Linux](http://www.runoob.com/linux/linux-command-manual.html)
+# [Linux](http://www.runoob.com/linux/linux-command-manual.html)
+参考：[LINUX技巧](https://coolshell.cn/articles/8883.html)
 
 #### 查看系统的磁盘分区以及磁盘空间
 - fdisk -l (磁盘分区情况)
@@ -79,35 +80,3 @@
 - kill -s 19 pid (暂停)
 - kill -s 18 pid (恢复暂停)
 - kill -s 9 pid (强制杀死)
-
-#### grep
-
-#### awk
-
-##### netstat.txt
-```
-Proto Recv-Q Send-Q  Local Address          Foreign Address        (state)
-tcp4       0      0  bogon.55008            117.122.217.19.https   ESTABLISHED
-tcp4       0      0  bogon.54946            114.118.16.159.https   ESTABLISHED
-tcp4       0      0  bogon.54945            101.201.173.208.https  ESTABLISHED
-tcp4       0      0  bogon.54943            119.39.146.129.https   ESTABLISHED
-tcp4       0      0  bogon.54874            119.39.204.33.https    ESTABLISHED
-tcp4       0      0  bogon.54873            ti-in-f138.1e100.https SYN_SENT
-tcp4       0      0  bogon.54868            ti-in-f138.1e100.https SYN_SENT
-tcp4      37      0  bogon.53911            111.206.37.70.https    CLOSE_WAIT
-```
-- awk '{printf "%-8s %-22s\n",$1,$5}' netstat.txt
-```
-bogon:Array hades$ awk '{printf "%-8s %-22s\n",$1,$5}' netstat.txt
-Proto    Address
-tcp4     117.122.217.19.https
-tcp4     114.118.16.159.https
-tcp4     101.201.173.208.https
-tcp4     119.39.146.129.https
-tcp4     119.39.204.33.https
-tcp4     ti-in-f138.1e100.https
-tcp4     ti-in-f138.1e100.https
-tcp4     111.206.37.70.https
-```
-- awk '{printf "%-8s %-22s\n",$1,$5}' netstat.txt
-- 
