@@ -1,5 +1,5 @@
 # AWK
-参考：[AWK 简明教程](https://coolshell.cn/articles/9070.html)、[AWK程序设计](https://awk.readthedocs.io/en/latest/index.html)
+参考：[AWK 简明教程](https://coolshell.cn/articles/9070.html)、[AWK程序设计](https://awk.readthedocs.io/en/latest/index.html)、[AWK](https://aicode.cc/san-shi-fen-zhong-xue-huiawk.html)
 
 ## 数据准备
 ##### netstat.txt
