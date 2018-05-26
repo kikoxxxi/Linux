@@ -1,5 +1,5 @@
 # AWK
-参考：[AWK 简明教程](https://coolshell.cn/articles/9070.html)、[AWK程序设计](https://awk.readthedocs.io/en/latest/index.html)、[AWK](https://aicode.cc/san-shi-fen-zhong-xue-huiawk.html)
+参考：[AWK 简明教程](https://coolshell.cn/articles/9070.html)、[AWK程序设计](https://awk.readthedocs.io/en/latest/index.html)、[AWK](https://aicode.cc/san-shi-fen-zhong-xue-huiawk.html)、[Awk Tutorial](https://www.tutorialspoint.com/awk/index.htm)
 
 ## 数据准备
 ##### netstat.txt
@@ -28,7 +28,7 @@ Paul            89329 54 78 85
 ## 格式化输出
 - `awk '{printf "%-8s %-22s\n",$1,$5}' netstat.txt`
 ```
-bogon:Array hades$ awk '{printf "%-8s %-22s\n",$1,$5}' netstat.txt
+$ awk '{printf "%-8s %-22s\n",$1,$5}' netstat.txt
 Proto    Foreign-Address
 tcp4     117.122.217.19.https
 tcp4     114.118.16.159.https
@@ -43,7 +43,7 @@ tcp4     111.206.37.70.https
 ## 过滤记录
 - `awk '$2==0 && $6=="ESTABLISHED" || NR==1 {printf "%-15s %-25s %s\n",$4,$5,$6}' netstat.txt`
 ```
-bogon:awk_practice hades$ awk '$2==0 && $6=="ESTABLISHED" || NR==1 {printf "%-15s %-25s %s\n",$4,$5,$6}' netstat.txt
+$ awk '$2==0 && $6=="ESTABLISHED" || NR==1 {printf "%-15s %-25s %s\n",$4,$5,$6}' netstat.txt
 Local-Address   Foreign-Address           (state)
 bogon.55008     117.122.217.19.https      ESTABLISHED
 bogon.54946     114.118.16.159.https      ESTABLISHED
@@ -69,7 +69,7 @@ FNR | 当前记录数，与NR不同的是这个值是各个文件自己的行号
 - `awk -F'[.]' '{print $2,$4,$5}' netstat.txt`
 - `awk -F. '{print $2,$4,$5}' OFS="\t" netstat.txt`
 ```
-bogon:awk_practice hades$ awk -F. '{print $2,$4,$5}' netstat.txt
+$ awk -F. '{print $2,$4,$5}' netstat.txt
 55008            117 217 19
 54946            114 16 159
 54945            101 173 208
@@ -85,7 +85,7 @@ bogon:awk_practice hades$ awk -F. '{print $2,$4,$5}' netstat.txt
 - `awk '/SYN/||NR==1' netstat.txt`
 - 取反：`awk '$6 !~/SYN/||NR==1{print NR,$4,$5,$6}' OFS="\t" netstat.txt`
 ```
-bogon:awk_practice hades$ awk '$6 ~/SYN/ || NR==1 {print NR,$4,$5,$6}' OFS="\t" netstat.txt
+$ awk '$6 ~/SYN/ || NR==1 {print NR,$4,$5,$6}' OFS="\t" netstat.txt
 1   Local-Address   Foreign-Address (state)
 7   bogon.54873 ti-in-f138.1e100.https  SYN_SENT
 8   bogon.54868 ti-in-f138.1e100.https  SYN_SENT
@@ -100,13 +100,13 @@ bogon:awk_practice hades$ awk '$6 ~/SYN/ || NR==1 {print NR,$4,$5,$6}' OFS="\t" 
 - 计算.txt文件大小总和：`ls -l *.txt | awk '{sum+=$5} END {print sum}'`
 - 计算每个用户的进程所占内存：`ps aux | awk 'NR!=1 {a[$1]+=$6} END{for(i in a) print i ", " a[i] "KB"}'`
 ```
-bogon:awk_practice hades$ ps aux | awk 'NR!=1 {a[$1]+=$6} END{for(i in a) print i ", " a[i] "KB"}'
+$ ps aux | awk 'NR!=1 {a[$1]+=$6} END{for(i in a) print i ", " a[i] "KB"}'
 root, 661716KB
 hades, 5453276KB
 ```
 - `awk 'NR!=1 {a[$6]+=1} END{for(i in a) print i ", " a[i]}' netstat.txt`
 ```
-bogon:awk_practice hades$ awk 'NR!=1 {a[$6]+=1} END{for(i in a) print i ", " a[i]}' netstat.txt
+$ awk 'NR!=1 {a[$6]+=1} END{for(i in a) print i ", " a[i]}' netstat.txt
 SYN_SENT, 2
 CLOSE_WAIT, 1
 ESTABLISHED, 5
@@ -135,7 +135,7 @@ END {
 ```
 - `awk -f cal.awk score.txt`
 ```
-bogon:awk_practice hades$ awk -f cal.awk score.txt
+$ awk -f cal.awk score.txt
 NAME     No.      MATH  ENGLISH  COMPUTER   TOTAL
 ----------------------------------------------------
 Troye    21342    88       99      100      287
